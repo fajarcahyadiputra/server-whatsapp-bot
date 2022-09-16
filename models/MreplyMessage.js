@@ -11,6 +11,7 @@ module.exports = (Sequelize, DataTypes) => {
         keyword: DataTypes.STRING,
         message: DataTypes.TEXT,
         type: DataTypes.STRING,
+        question: DataTypes.STRING,
         link_media: DataTypes.STRING,
         number_destination: DataTypes.STRING(15),
         created_at: {

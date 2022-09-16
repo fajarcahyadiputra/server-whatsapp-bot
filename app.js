@@ -5,7 +5,6 @@ const { Client, Location, List, Buttons, LocalAuth, MessageMedia } = require('wh
 const qrcode = require('qrcode');
 const path = require('path');
 const cors = require('cors');
-const WSF = require('wa-sticker-tew')
 const fs = require('fs');
 const downloadFile = require('nodejs-file-downloader');
 const moment = require('moment-timezone');
@@ -137,16 +136,18 @@ client.on('message', async msg => {
                         message: wareplies.text,
                         number_destination: number,
                         keyword: msg.body,
+                        question: wareplies.name,
                         type: wareplies.type,
                         link_media: null,
                     })
                     if (wareplies.keyword == 21) {
-                        let edukasiCovid = await edukasiCovid19();
-                        let result = xml2js.parseString(edukasiCovid, (err, result) => {
-                            const json = JSON.stringify(result, null, 4);
-                            console.log(json);
-                        });
-                        console.log(result);
+                        // let edukasiCovid = await edukasiCovid19();
+                        // let result = xml2js.parseString(edukasiCovid, (err, result) => {
+                        //     const json = JSON.stringify(result, null, 4);
+                        //     console.log(json);
+                        // });
+                        // console.log(result);
+                        textMessage = "Untuk sekarang belum terasedia untuk pertanyaan tentang apotik"
                     } else if (wareplies.keyword == 20) {
                         let infoCovid = await kasusCovidHarian();
                         let message = `kasus covid pada tanggal *${infoCovid.update.penambahan.tanggal}* \n\nTotal jumblah positif : ${infoCovid.update.penambahan.jumlah_positif}\nTotal jumblah meninggal : ${infoCovid.update.penambahan.jumlah_meninggal}\nTotal jumblah di rawat : ${infoCovid.update.penambahan.jumlah_dirawat}`
@@ -187,6 +188,7 @@ client.on('message', async msg => {
                             keyword: msg.body,
                             number_destination: number,
                             type: wareplies.type,
+                            question: wareplies.name,
                             link_media: linkMedia,
                         })
                         msg.reply(media)
@@ -198,6 +200,7 @@ client.on('message', async msg => {
             } else {
                 await ReplyMessage.create({
                     keyword: msg.body,
+                    question: wareplies.name,
                     number_destination: number,
                     type: 'text',
                 })

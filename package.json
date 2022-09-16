@@ -26,8 +26,6 @@
     "qrcode-terminal": "^0.12.0",
     "sequelize": "^6.19.0",
     "socket.io": "^4.5.0",
-    "wa-sticker-formatter": "^4.3.2",
-    "wa-sticker-tew": "^2.3.6",
     "whatsapp-web.js": "^1.17.1",
     "xml2js": "^0.4.23"
   }
