@@ -147,7 +147,7 @@ client.on('message', async msg => {
                         //     console.log(json);
                         // });
                         // console.log(result);
-                        textMessage = "Untuk sekarang belum terasedia untuk pertanyaan tentang apotik"
+                        textMessage = "Untuk sekarang belum terasedia untuk pertanyaan tentang edukasi Covid-19"
                     } else if (wareplies.keyword == 20) {
                         let infoCovid = await kasusCovidHarian();
                         let message = `kasus covid pada tanggal *${infoCovid.update.penambahan.tanggal}* \n\nTotal jumblah positif : ${infoCovid.update.penambahan.jumlah_positif}\nTotal jumblah meninggal : ${infoCovid.update.penambahan.jumlah_meninggal}\nTotal jumblah di rawat : ${infoCovid.update.penambahan.jumlah_dirawat}`
