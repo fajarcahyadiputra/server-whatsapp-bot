@@ -319,7 +319,10 @@ app.post('/send-message', async(req, res)=>{
         // let chat = await msg.getChat();
         // chat.sendSeen();
         client.sendMessage(number, message);
-        res.send('sukses')
+        res.json({
+            status: "success",
+            message: "message sended"
+        })
     } catch (error) {
         console.log(error.message);
     }
