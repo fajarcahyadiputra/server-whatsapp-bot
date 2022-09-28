@@ -310,6 +310,21 @@ app.get('/', (req, res) => {
     res.render('index.ejs');
 })
 
+app.post('/send-message', async(req, res)=>{
+    try {
+        let number = req.body.number
+        // let messageIndex = msg.body.indexOf(number) + number.length;
+        let message = req.body.message;
+        number = number.includes('@c.us') ? number : `${number}@c.us`;
+        // let chat = await msg.getChat();
+        // chat.sendSeen();
+        client.sendMessage(number, message);
+        res.send('sukses')
+    } catch (error) {
+        console.log(error.message);
+    }
+})
+
 client.initialize();
 
 
